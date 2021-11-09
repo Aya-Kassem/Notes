@@ -1,0 +1,15 @@
+
+.input-wrapper{
+    width: 50%;
+}
+form div:not(.input-wrapper){
+    width: 100%;
+}
+@media (max-width: 768px){
+    form > div{
+        width: 100%;
+    }
+}
+
+
+

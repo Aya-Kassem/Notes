@@ -1,0 +1,35 @@
+
+<div id="particles-js"></div>
+
+<div class="mx-auto content-wrapper">
+    <h3 class="alert alert-danger py-1 my-2 w-100" *ngIf="err">{{err}}</h3>
+    <form class="w-100" [formGroup] = 'LoginForm' (ngSubmit) = 'SubmitLoginForm(LoginForm)'>
+        <div class="my-2">
+
+            <div [class.valid]="LoginForm.get('email')?.valid" class="position-relative mb-1">
+                <input formControlName = 'email' type="email" class="form-control bg-white" placeholder="Enter Email">
+                <i class="fas fa-check check mx-2" [class.displayIcon]="LoginForm.get('email')?.valid"></i>
+            </div>
+            
+            <div class="alert alert-danger py-2 m-0" *ngIf="LoginForm.get('email')?.errors != null && LoginForm.get('email')?.touched">
+                <p class="m-0" *ngIf="LoginForm.get('email')?.errors?.required">Email is Required</p>
+                <p class="m-0" *ngIf="LoginForm.get('email')?.errors?.email">Email is Not Valid</p>
+            </div>
+
+        </div>
+        <div class="my-2">
+            <div [class.valid] = "LoginForm.get('password')?.valid" class="position-relative mb-1">
+                <input formControlName = 'password' type="password" class="form-control" placeholder="Enter Password" name="password">
+                <i class="fas fa-check check mx-2" [class.displayIcon]="LoginForm.get('password')?.valid"></i>
+            </div>
+            <div class="alert alert-danger py-2 m-0" *ngIf="LoginForm.get('password')?.errors != null && LoginForm.get('password')?.touched">
+                <p class="m-0" *ngIf="LoginForm.get('password')?.errors?.required">Password is Required</p>
+                <p class="m-0" *ngIf="LoginForm.get('password')?.errors?.pattern">Please Start With Capital Character and Enclude any Digit</p>
+            </div>
+        </div>
+
+        <div class="my-2 p-0">
+            <button type="submit" class="btn w-100 sub-btn" [disabled] = 'LoginForm.invalid'>Sign In</button>
+        </div>
+    </form>
+</div>

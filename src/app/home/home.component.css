@@ -1,0 +1,90 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat+Alternates:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&display=swap');
+
+
+.home{
+    width: 100%;
+    min-height: 100vh;
+    padding-top: 100px;
+    background: linear-gradient(to bottom, #4b134f, #c94b4b);
+}
+
+.btn-info {
+    color: #fff;
+    background-color: rgba(160, 60, 60, .7);
+    border: none;
+}
+.btn-delete{
+    background-color: #2e2e2e;
+}
+.fa-pen-square{
+    color: #17a2b8;
+}
+.notewrapper{
+    padding: 10px 0;
+    height: 100%;
+    width: 100%;
+    position: relative;
+    background-color: rgba(255, 255, 255, .7);
+    box-shadow: 
+        inset 0px 11px 8px -10px rgba(0, 0, 0, .7),
+        inset 0px -11px 8px -10px rgba(0, 0, 0, .7); 
+}
+
+.btn,
+h5,
+.notewrapper h2{
+    font-family: 'Montserrat Alternates', sans-serif;
+    font-weight: 600;
+    font-style: italic;
+}
+h2,h5{
+    color: #4b134f;
+}
+.cancel{
+    background-color: #4b134f;
+}
+.add{
+    background-color: #c94b4b;
+}
+.edit span,
+.delete span{
+    color: #4b134f;
+}
+.note-content p {
+    font-size: 30px;
+    font-family: 'Dancing Script', cursive;
+}
+.notewrapper .btn-group button{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+.btn-group, .btn-group-vertical,
+.dropdown, .dropend, .dropstart, .dropup {
+    position: static;
+}
+.dropdown-menu li a{
+    cursor: pointer;
+}
+.button{
+    text-align: right;
+}
+.form-control{
+    border: 1px solid #ced4da;
+}
+.btn-close:focus{
+    box-shadow: none;
+}
+a{
+    text-decoration: none;
+    /* color: #252129; */
+    font-weight: 500;
+    font-style: italic;
+}
+#DeleteModal .modal-body p{
+    font-family: 'Dancing Script', cursive;
+    font-size: 30px;
+    color: #dc3545;
+}

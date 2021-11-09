@@ -1,0 +1,102 @@
+
+
+
+<div class="home">
+    <div class="container p-0">
+        <div class="row d-flex p-0 m-0">
+            <div class="my-4 button">
+                <button type="button" class="btn btn-info text-white ms-auto shadow" data-bs-toggle="modal" data-bs-target="#NoteModal">Add Note</button>
+            </div>
+            
+            <!-- DISPLAY NOTES -->
+            <div class="col-md-4 my-3" *ngFor="let note of AllNotes; let position = index;">
+                <div class="notewrapper py-2 rounded text-center d-flex flex-column justify-content-center ">
+                    <div class="btn-group dropend">
+                        <button type="button" class="btn" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="fas fa-ellipsis-v"></i>
+                        </button>
+                        <ul class="dropdown-menu px-3">
+                          <li class="my-2">
+                              <a class="d-flex justify-content-between align-items-center edit" (click) = 'EditNote(position)' data-bs-toggle="modal" data-bs-target="#EditModal">
+                                  <span class="m-0">Edit</span>
+                                  <i class="fas fa-pen-square"></i>
+                              </a>
+                          </li> 
+                          <!--  -->
+                          <li class="my-2"> 
+                            <a class="d-flex justify-content-between align-items-center delete" (click) = 'deleteNote(position)' data-bs-toggle="modal" data-bs-target="#DeleteModal">
+                                <span class="m-0">Delete</span>
+                                <i class="fas fa-trash text-danger"></i>
+                            </a>
+                          </li>
+                        </ul>
+                    </div>
+                    <div class="note-content my-4">
+                        <h2 class="px-4">{{note.heading}}</h2>
+                        <p class="px-4">{{note.body}}</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- ADD MODAL -->
+            <div class="modal" id="NoteModal" tabindex="-1" aria-labelledby="NoteModal" aria-hidden="true">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalLabel">Add Note</h5>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body px-4">
+                      <input type="text" class="form-control my-3" [(ngModel)]="NoteHeading" placeholder="Title">
+                      <textarea class="form-control my-3" rows="10" [(ngModel)]="NoteBody" placeholder="Add Description"></textarea>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn add text-white" (click) = "AddNote()" data-bs-dismiss="modal">Add Note</button>
+                      <button type="button" class="btn text-white cancel" data-bs-dismiss="modal">Cancel</button>
+                    </div>
+                  </div>
+                </div>
+            </div>
+
+            <!--  EDIT MODAL -->
+          <div class="modal" id="EditModal" tabindex="-1" aria-labelledby="EditModal" aria-hidden="true">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Edit Note</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body px-4">
+                    <input type="text" class="form-control my-3" [(ngModel)]="NoteHeading" placeholder="Title">
+                    <textarea class="form-control my-3" rows="10" [(ngModel)]="NoteBody" placeholder="Add Description"></textarea>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn add text-white" (click) = 'ConfirmUpdate()' data-bs-dismiss="modal">Save</button>
+                    <button type="button" class="btn cancel text-white" data-bs-dismiss="modal">Cancel</button>
+                  </div>
+                </div>
+              </div>
+          </div>
+
+          <!-- DELETE MODAL -->
+          <div class="modal fade" id="DeleteModal" tabindex="-1" aria-labelledby="DeleteModal" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">Delete Note</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  <p class="m-0">Do you really want to delete ?</p>
+                  <p class="m-0">process cannot be undone</p>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn add text-white"  (click) = 'ConfirmDelete()' data-bs-dismiss="modal">Delete</button>
+                  <button type="button" class="btn cancel text-white" data-bs-dismiss="modal">Cancel</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
+</div>

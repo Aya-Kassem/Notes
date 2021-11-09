@@ -1,0 +1,16 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Lobster+Two:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+.navbar-brand{
+    font-family: 'Lobster Two', cursive;
+    font-weight: 700;
+    font-size: 25px;
+}
+.nav-link{
+    color: #fff !important;
+    font-family: 'Lobster Two', cursive;
+    font-size: 20px;
+}
+.nav-link:hover,
+.navbar-brand:hover{
+    color: #a03c3c !important;
+}

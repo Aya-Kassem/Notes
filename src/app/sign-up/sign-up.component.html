@@ -1,0 +1,77 @@
+
+
+<div class="main">
+    <div id="particles-js"></div>
+ 
+<div class="content-wrapper mx-auto">
+    <h3 class="alert alert-danger py-1 mb-1" *ngIf="err">{{err}}</h3>
+    <form [formGroup] = 'FormRegister' (ngSubmit) = 'SubmitReigisterForm(FormRegister)' class="w-100 d-flex flex-wrap">
+
+
+        <div class="my-1 input-wrapper pe-0 pe-md-2">
+            <div [class.valid]="FormRegister.get('first_name')?.valid" class="position-relative mb-1">
+                <input formControlName = 'first_name' type="text" class="form-control bg-white" placeholder="Enter First Name" name="f-name">
+                <i class="fas fa-check check mx-2" [class.displayIcon]="FormRegister.get('first_name')?.valid"></i>
+            </div>
+            
+            <div class="alert alert-danger py-2 m-0" *ngIf = "FormRegister.get('first_name')?.errors != null && FormRegister.get('first_name')?.touched">
+                <p class="m-0" *ngIf = "FormRegister.get('first_name')?.errors?.required">First Name is Required</p>
+                <p class="m-0" *ngIf = "FormRegister.get('first_name')?.errors?.minlength">MinLength is 3 characters</p>
+                <p class="m-0" *ngIf = "FormRegister.get('first_name')?.errors?.maxlength">MaxLength is 8 characters</p>
+            </div>
+        </div>
+
+        <div class="my-1 input-wrapper ps-0 ps-md-2">
+            <div [class.valid]="FormRegister.get('last_name')?.valid" class="position-relative mb-1">
+                <input formControlName = 'last_name' type="text" class="form-control" placeholder="Enter Last Name" name="l-name">
+                <i class="fas fa-check check mx-2" [class.displayIcon]="FormRegister.get('last_name')?.valid"></i>
+            </div>
+            <div class="alert alert-danger py-2 m-0" *ngIf="FormRegister.get('last_name')?.errors != null && FormRegister.get('last_name')?.touched">
+                <p class="m-0" *ngIf="FormRegister.get('last_name')?.errors?.required">Last Name is Required</p>
+                <p class="m-0" *ngIf="FormRegister.get('last_name')?.errors?.minlength">MinLength is 3 Characters</p>
+                <p class="m-0" *ngIf="FormRegister.get('last_name')?.errors?.maxlength">MaxLength is 8 Characters</p>
+            </div>
+        </div>
+
+        <div class="my-1">
+            <div [class.valid]="FormRegister.get('email')?.valid" class="position-relative mb-1">
+                <input formControlName = 'email' type="email" class="form-control" placeholder="Enter Email" name="mail">
+                <i class="fas fa-check check mx-2" [class.displayIcon]="FormRegister.get('email')?.valid"></i>
+            </div>
+            
+            <div class="alert alert-danger py-2 m-0" *ngIf="FormRegister.get('email')?.errors != null && FormRegister.get('email')?.touched">
+                <p class="m-0" *ngIf="FormRegister.get('email')?.errors?.required">Email is Required</p>
+                <p class="m-0" *ngIf="FormRegister.get('email')?.errors?.email">Email is Not Valid</p>
+            </div>
+        </div>
+
+        <div class="my-1">
+            <div [class.valid]="FormRegister.get('age')?.valid" class="position-relative mb-1">
+                <input formControlName = 'age' type="number" class="form-control" placeholder="Enter Your Age" name="age">
+                <i class="fas fa-check check mx-2" [class.displayIcon]="FormRegister.get('age')?.valid"></i>
+            </div>
+            <div class="alert alert-danger py-2 m-0" *ngIf = "FormRegister.get('age')?.errors != null && FormRegister.get('age')?.touched">
+                <p class="m-0" *ngIf = "FormRegister.get('age')?.errors?.required">Age is Required</p>
+                <p class="m-0" *ngIf = "FormRegister.get('age')?.errors?.pattern">Age is Not Valid</p>
+            </div>
+        </div>
+
+        <div class="my-1">
+            <div [class.valid] = "FormRegister.get('password')?.valid" class="position-relative mb-1">
+                <input formControlName = 'password' type="password" class="form-control" placeholder="Enter Password" name="password">
+                <i class="fas fa-check check mx-2" [class.displayIcon]="FormRegister.get('password')?.valid"></i>
+            </div>
+            <div class="alert alert-danger py-2 m-0" *ngIf="FormRegister.get('password')?.errors != null && FormRegister.get('password')?.touched">
+                <p class="m-0" *ngIf="FormRegister.get('password')?.errors?.required">Password is Required</p>
+                <p class="m-0" *ngIf="FormRegister.get('password')?.errors?.pattern">Please Start With Capital Character and Enclude any Digit</p>
+            </div>
+        </div>
+
+        <div class="my-1">
+            <button type="submit" class="btn w-100 sub-btn" [disabled] = 'FormRegister.invalid'>Sign Up</button>
+        </div>
+    </form>
+</div>
+
+
+</div>

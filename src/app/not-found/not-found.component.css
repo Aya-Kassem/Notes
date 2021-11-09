@@ -1,0 +1,45 @@
+@import url('https://fonts.googleapis.com/css2?family=Smythe&display=swap');
+
+
+
+.main{
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(to right,#c94b4b, #4b134f);
+    position: relative;
+    overflow: hidden;
+}
+.visible{
+    position: absolute;
+}
+.not-found{
+    font-size: 120px;
+    font-weight: 700;
+    letter-spacing: 15px;
+    color: rgba(33, 37, 41, .7);
+}
+.base{
+    font-size: 500px;
+    font-weight: 700;
+    letter-spacing: -10px;
+    color: rgba(102, 102, 102, .4);
+    font-family: 'Smythe', cursive;
+}
+button{
+    font-size: 20px;
+    padding: 5px 50px;
+    background-color: rgb(75, 19, 79)
+}
+button:hover,
+button{
+    color: rgba(255, 255, 255, .5);
+}
+
+@media screen and(max-width: 700px){
+    .base{
+        font-size: 100px;
+    }
+}
