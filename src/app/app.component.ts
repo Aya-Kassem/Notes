@@ -2,11 +2,6 @@ import { Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 
 
-
-
-
-
-
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',

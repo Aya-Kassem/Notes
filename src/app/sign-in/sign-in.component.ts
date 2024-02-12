@@ -27,17 +27,19 @@ export class SignInComponent implements OnInit {
   })
 
   SubmitLoginForm( LoginForm:FormGroup ){
-    if(LoginForm.valid){
-      this._FormService.SendingLoginData(LoginForm.value).subscribe((response)=>{
-        console.log(response.message)
-
-        if( response.message == 'success' ){
-          localStorage.setItem('UserToken', response.token)
+    if (LoginForm.valid) {
+      this._FormService.SendingLoginData(LoginForm.value).subscribe({
+        next: (val) => {
+          if(val.idToken){
+            localStorage.setItem('UserToken', val.idToken)
           this._FormService.userData();
+          }
+        },
+        error: (err) => {
+          this.err = err.error.error.message
+        },
+        complete: () => {
           this._Router.navigate(['home'])
-        }
-        else{
-          this.err = response.message
         }
       })
     }

@@ -13,7 +13,6 @@ declare var particlesJS: any;
 
 
 export class SignUpComponent implements OnInit {
-
   constructor( private _FormService:FormService, private _Router:Router) { }
 
   ngOnInit(): void {
@@ -34,14 +33,19 @@ export class SignUpComponent implements OnInit {
   })
 
   SubmitReigisterForm( FormRegister:FormGroup ){
-    if(FormRegister.valid){
-      this._FormService.SendingFormData(FormRegister.value).subscribe((response)=>{
-
-        if( response.message == 'success' ){
-          this._Router.navigate(['sign-in'])
-        }
-        else{
-          this.err = response.errors.email.message
+    let userData = { email: '', password: '' };
+    if (FormRegister.valid) {
+      userData.email = FormRegister.value.email;
+      userData.password = FormRegister.value.password;
+      this._FormService.SendingFormData(userData).subscribe({
+        next: (val) => {
+          console.log(val);
+        },
+        error: (err) => {
+          this.err = err.error.error.message
+        },
+        complete: () => {
+          this._Router.navigate(['/signIn'])
         }
       })
     }

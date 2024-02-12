@@ -8,7 +8,7 @@ import jwtDecode from 'jwt-decode';
   providedIn: 'root'
 })
 export class FormService {
-
+  apiKey: string = 'AIzaSyBhC55WofK_oj66143euASdOYgqHet1pPQ';
   constructor(private _HttpClient:HttpClient) {
 
     if( localStorage.getItem('UserToken') != null){
@@ -18,11 +18,15 @@ export class FormService {
 
   decodeData = new BehaviorSubject(null);
 
-  SendingFormData(formData:object): Observable<any>{
-    return this._HttpClient.post(`https://routeegypt.herokuapp.com/signup`, formData)
+  SendingFormData(formData:{email: string, password: string}): Observable<any>{
+    return this._HttpClient.post(`https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=${this.apiKey}`, {
+      'email': formData.email,
+      'password': formData.password,
+      'returnSecureToken': true
+    })
   }
   SendingLoginData(formData:object): Observable<any>{
-    return this._HttpClient.post(`https://routeegypt.herokuapp.com/signin`, formData)
+    return this._HttpClient.post(`https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=${this.apiKey}`, formData)
   }
   userData(){
     let userToken = JSON.stringify(localStorage.getItem('UserToken'))
