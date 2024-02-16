@@ -45,7 +45,7 @@ export class SignUpComponent implements OnInit {
           this.err = err.error.error.message
         },
         complete: () => {
-          this._Router.navigate(['/signIn'])
+          this._Router.navigate(['/sign-in'])
         }
       })
     }

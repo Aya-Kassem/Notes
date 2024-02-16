@@ -24,6 +24,7 @@
     padding: 10px 0;
     height: 100%;
     width: 100%;
+
     position: relative;
     background-color: rgba(255, 255, 255, .7);
     box-shadow: 
@@ -50,6 +51,9 @@ h2,h5{
 .edit span,
 .delete span{
     color: #4b134f;
+}
+.note-content{
+    overflow-wrap: break-word;
 }
 .note-content p {
     font-size: 30px;

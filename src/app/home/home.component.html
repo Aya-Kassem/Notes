@@ -10,7 +10,7 @@
             
             <!-- DISPLAY NOTES -->
             <div class="col-md-4 my-3" *ngFor="let note of AllNotes; let position = index;">
-                <div class="notewrapper py-2 rounded text-center d-flex flex-column justify-content-center ">
+                <div class="notewrapper py-2 rounded text-center d-flex flex-column justify-content-space-between ">
                     <div class="btn-group dropend">
                         <button type="button" class="btn" data-bs-toggle="dropdown" aria-expanded="false">
                             <i class="fas fa-ellipsis-v"></i>
@@ -32,8 +32,8 @@
                         </ul>
                     </div>
                     <div class="note-content my-4">
-                        <h2 class="px-4">{{note.heading}}</h2>
-                        <p class="px-4">{{note.body}}</p>
+                        <h2 class="px-4 ">{{note.heading}}</h2>
+                        <p class="px-4 ">{{note.body}}</p>
                     </div>
                 </div>
             </div>
